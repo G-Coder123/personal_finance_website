@@ -1,0 +1,34 @@
+{% load static %}
+
+{% block title %}
+Investing Quiz
+{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <title>
+            Investing Quiz
+        </title>
+    </head>
+
+    <body>
+    <h1>Please complete the Investing Quiz! </h1>
+        <form method="POST" action="{% url 'investing quiz' %}">
+            {% csrf_token %}
+            {% for question in questions %}
+            <label>{{question.title}}</label>
+                <select name="{{question.title}}">
+                <option value="{{question.answer1}}">{{question.answer1}}</option>
+                <option value ="{{question.answer2}}">{{question.answer2}}</option>
+                <option value="{{question.answer3}}">{{question.answer3}}</option>
+                </select>
+                <br>
+            {% endfor %}
+
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+{% endblock %}

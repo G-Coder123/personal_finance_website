@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block title %}
+Investing Quiz Result
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <h1>Here is your result! You have gotten a: {{percentage}}%</h1><br>
+    <h1> You have gotten {{wrong}} wrong answers and {{correct}} correct answers</h1>
+    <h1>Good work!  </h1><br>
+
+    <p> Try your best to improve your score! <a href="{% url 'investing quiz' %}">Click here to try again.</a> </p>
+
+</body>
+</html>
+
+{% endblock %}
