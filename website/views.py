@@ -10,7 +10,7 @@ def investing(request):
 def investingQuiz(request):
     if request.method=="POST":
         print(request.POST)
-        quest=Quiz.objects.filter(topic='Investing').values()
+        quest=Quiz.objects.filter(topic='Investing')
         score=0
         wrong=0
         correct=0
@@ -25,7 +25,10 @@ def investingQuiz(request):
                 wrong+=1
         percentage = (correct/total)*100
         c = {"score":score, "correct":correct, "wrong":wrong, "percentage":percentage}
-        return render(request, "result.html", c)
-    quest =Quiz.objects.filter(topic='Investing').values()
+        return render(request, "investingQuizResult.html", c)
+    quest =Quiz.objects.filter(topic='Investing')
     context ={"questions":quest}
     return render(request, "investingQuiz.html", context)
+
+def about(request):
+    return render(request, 'about.html')
